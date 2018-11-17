@@ -1,5 +1,7 @@
 {
   "name": "BeklemeYapma.Ui.Mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
