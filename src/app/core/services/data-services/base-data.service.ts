@@ -25,16 +25,16 @@ export class BaseDataService {
     return this.httpClient.get<TResponse>(this.baseUrl + endPoint).pipe(
       map(data => {
         const response = <BaseResponse<TResponse>>{};
-        response.Data = data;
-        response.Errors = [];
-        response.HasError = false;
+        response.data = data;
+        response.errors = [];
+        response.has_error = false;
         return response;
       }),
       catchError(errors => {
         const response = <BaseResponse<TResponse>>{};
-        response.Errors = [];
-        response.Errors.push(errors.error);
-        response.HasError = true;
+        response.errors = [];
+        response.errors.push(errors.error);
+        response.has_error = true;
         return of(response);
       })
     );
@@ -48,17 +48,17 @@ export class BaseDataService {
       map(data => {
         console.log(data);
         const response = <BaseResponse<TResponse>>{};
-        response.Data = data;
-        response.Errors = [];
-        response.HasError = false;
+        response.data = data;
+        response.errors = [];
+        response.has_error = false;
         console.log(response);
         return response;
       }),
       catchError(errors => {
         const response = <BaseResponse<TResponse>>{};
-        response.Errors = [];
-        response.Errors.push(errors.error);
-        response.HasError = true;
+        response.errors = [];
+        response.errors.push(errors.error);
+        response.has_error = true;
         return of(response);
       })
     );
@@ -71,16 +71,16 @@ export class BaseDataService {
     return this.httpClient.put<TResponse>(this.baseUrl + endPoint, body).pipe(
       map(data => {
         const response = <BaseResponse<TResponse>>{};
-        response.Data = data;
-        response.Errors = [];
-        response.HasError = false;
+        response.data = data;
+        response.errors = [];
+        response.has_error = false;
         return response;
       }),
       catchError(errors => {
         const response = <BaseResponse<TResponse>>{};
-        response.Errors = [];
-        response.Errors.push(errors.error);
-        response.HasError = true;
+        response.errors = [];
+        response.errors.push(errors.error);
+        response.has_error = true;
         return of(response);
       })
     );

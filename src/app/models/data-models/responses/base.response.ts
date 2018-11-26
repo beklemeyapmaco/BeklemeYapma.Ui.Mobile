@@ -1,6 +1,6 @@
 export interface BaseResponse<T> {
-  HasError: boolean;
-  Errors: string[];
-  Total: number;
-  Data: T;
+  has_error: boolean;
+  errors: string[];
+  total: number;
+  data: T;
 }

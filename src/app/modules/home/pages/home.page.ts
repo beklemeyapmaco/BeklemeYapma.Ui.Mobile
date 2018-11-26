@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { UserService } from "../../../core/services/business-services/user/user.service";
-import { User } from "../../../models/user/user";
 import { AppComponent } from "../../../app.component";
 import { NavController } from "@ionic/angular";
 
 import { BaseComponent } from "../../../../shared/base/base.component";
+import { RestaurantResponse } from "src/app/models/data-models/responses/restaurant/restaurant.response";
+import { RestaurantDataService } from "src/app/core/services/data-services/restaurant/restaurant.service";
+import { BaseResponse } from "src/app/models/data-models/responses/base.response";
+import { BasePaginatedResponse } from "src/app/models/data-models/responses/base.paginated.response";
 
 @Component({
   selector: "app-home",
@@ -13,15 +15,18 @@ import { BaseComponent } from "../../../../shared/base/base.component";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage extends BaseComponent implements OnInit {
-  user: User;
+  restaurants: RestaurantResponse[] = [];
 
   constructor(public navController: NavController
     , public appComponent: AppComponent
-    , public userService: UserService
+    , public restaurantService: RestaurantDataService
     , private router: Router) { super() }
 
   ngOnInit() {
-    this.user = this.userService.getCurrentUser();
+    this.restaurantService.getRestaurants(null)
+      .subscribe((restaurants) => {
+        this.restaurants = restaurants.data.items;
+      });
   }
 
   navigate(url: string) {

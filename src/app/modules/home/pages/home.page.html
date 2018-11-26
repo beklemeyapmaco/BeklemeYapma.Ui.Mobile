@@ -15,5 +15,17 @@
 </ion-header>
 
 <ion-content padding>
-  {{'HELLO_MESSAGE'|translate}}
+  <ion-list>
+    <ion-grid fixed>
+      <ion-row align-items-stretch>
+        <ion-col size="12" size-md="6" *ngFor="let restaurant of restaurants">
+          <ion-card class="restaurant-card">
+              <img src="{{restaurant.image_url}}"/>
+              <div class="card-title">{{restaurant.name}}</div>
+              <div class="card-subtitle">{{restaurant.company_id}}</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
 </ion-content>

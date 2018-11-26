@@ -1,10 +1,10 @@
 export interface BasePaginatedResponse<T> {
-  Index: number;
-  PageSize: number;
-  Total: number;
+  index: number;
+  page_size: number;
+  total: number;
   items: T[];
-  First: string;
-  Next: string;
-  Prev: string;
-  Last: string;
+  first: string;
+  next: string;
+  prev: string;
+  last: string;
 }

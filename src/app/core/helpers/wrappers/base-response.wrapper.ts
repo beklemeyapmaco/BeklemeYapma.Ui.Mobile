@@ -2,7 +2,7 @@ import { BaseResponse } from "../../../models/data-models/responses/base.respons
 import { of } from "rxjs";
 
 export class BaseResponseWrapper {
-  constructor() {}
+  constructor() { }
 
   public static getWrappedResponse<T>(
     data: T,
@@ -11,10 +11,10 @@ export class BaseResponseWrapper {
     total: number
   ) {
     const response = <BaseResponse<T>>{
-      Data: data,
-      HasError: hasError,
-      Errors: errors,
-      Total: total
+      data: data,
+      has_error: hasError,
+      errors: errors,
+      total: total
     };
     return of(response);
   }
