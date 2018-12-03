@@ -1,5 +1,6 @@
 {
     "HELLO_MESSAGE":"Welcome",
     "HOME":"Home",
-    "MENU":"Menu"
+    "MENU":"Menu",
+    "LOGIN":"Login"
 }

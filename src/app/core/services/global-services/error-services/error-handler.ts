@@ -14,7 +14,8 @@ export class GlobalErrorHandler implements ErrorHandler {
     }
 
     let parsedError = this.parse(error);
-    this.alertHandler.presentAlert('Error', parsedError.message);
+    let alertMessage = parsedError.message + (parsedError.stack != null ? ' :: ' + parsedError.stack.toString() : '');
+    this.alertHandler.presentAlert('Error', alertMessage);
     console.log(error);
   }
 
